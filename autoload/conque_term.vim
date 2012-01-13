@@ -1148,44 +1148,76 @@ function! conque_term#init_conceal_color() " {{{
     "highlight link ConqueCCConceal Error
 
     " foreground colors, low intensity
+    " highlight ConqueCCF000 guifg=#000000
     highlight ConqueCCF000 guifg=#000000
-    highlight ConqueCCF00c guifg=#0000cc
-    highlight ConqueCCF0c0 guifg=#00cc00
-    highlight ConqueCCF0cc guifg=#00cccc
+    " highlight ConqueCCF00c guifg=#0000cc
+    highlight ConqueCCF00c guifg=#3464A4
+    " highlight ConqueCCF0c0 guifg=#00cc00
+    highlight ConqueCCF0c0 guifg=#4E9A05
+    " highlight ConqueCCF0cc guifg=#00cccc
+    highlight ConqueCCF0cc guifg=#05989A
+    " highlight ConqueCCFc00 guifg=#cc0000
     highlight ConqueCCFc00 guifg=#cc0000
-    highlight ConqueCCFc0c guifg=#cc00cc
-    highlight ConqueCCFcc0 guifg=#cccc00
-    highlight ConqueCCFccc guifg=#cccccc
+    " highlight ConqueCCFc0c guifg=#cc00cc
+    highlight ConqueCCFc0c guifg=#74507A
+    " highlight ConqueCCFcc0 guifg=#cccc00
+    highlight ConqueCCFcc0 guifg=#C4A000
+    " highlight ConqueCCFccc guifg=#cccccc
+    highlight ConqueCCFccc guifg=#D3D7CF
 
     " foreground colors, high intensity
+    " highlight ConqueCCF000 guifg=#000000
     highlight ConqueCCF000 guifg=#000000
-    highlight ConqueCCF00f guifg=#0000ff
-    highlight ConqueCCF0f0 guifg=#00ff00
-    highlight ConqueCCF0ff guifg=#00ffff
-    highlight ConqueCCFf00 guifg=#ff0000
-    highlight ConqueCCFf0f guifg=#ff00ff
-    highlight ConqueCCFff0 guifg=#ffff00
-    highlight ConqueCCFfff guifg=#ffffff
+    " highlight ConqueCCF00f guifg=#0000ff
+    highlight ConqueCCF00f guifg=#719ECF
+    " highlight ConqueCCF0f0 guifg=#00ff00
+    highlight ConqueCCF0f0 guifg=#8AE234
+    " highlight ConqueCCF0ff guifg=#00ffff
+    highlight ConqueCCF0ff guifg=#34E2E2
+    " highlight ConqueCCFf00 guifg=#ff0000
+    highlight ConqueCCFf00 guifg=#EF2828
+    " highlight ConqueCCFf0f guifg=#ff00ff
+    highlight ConqueCCFf0f guifg=#AD7EA7
+    " highlight ConqueCCFff0 guifg=#ffff00
+    highlight ConqueCCFff0 guifg=#FCE94E
+    " highlight ConqueCCFfff guifg=#ffffff
+    highlight ConqueCCFfff guifg=#EDEDEC
 
     " background colors, low intensity
+    " highlight ConqueCCB000 guibg=#000000
     highlight ConqueCCB000 guibg=#000000
-    highlight ConqueCCB00c guibg=#0000cc
-    highlight ConqueCCB0c0 guibg=#00cc00
-    highlight ConqueCCB0cc guibg=#00cccc
+    " highlight ConqueCCB00c guibg=#0000cc
+    highlight ConqueCCB00c guibg=#3464A4
+    " highlight ConqueCCB0c0 guibg=#00cc00
+    highlight ConqueCCB0c0 guibg=#4E9A05
+    " highlight ConqueCCB0cc guibg=#00cccc
+    highlight ConqueCCB0cc guibg=#05989A
+    " highlight ConqueCCBc00 guibg=#cc0000
     highlight ConqueCCBc00 guibg=#cc0000
-    highlight ConqueCCBc0c guibg=#cc00cc
-    highlight ConqueCCBcc0 guibg=#cccc00
-    highlight ConqueCCBccc guibg=#cccccc
+    " highlight ConqueCCBc0c guibg=#cc00cc
+    highlight ConqueCCBc0c guibg=#74507A
+    " highlight ConqueCCBcc0 guibg=#cccc00
+    highlight ConqueCCBcc0 guibg=#C4A000
+    " highlight ConqueCCBccc guibg=#cccccc
+    highlight ConqueCCBccc guibg=#D3D7CF
 
     " background colors, high intensity
+    " highlight ConqueCCB000 guibg=#000000
     highlight ConqueCCB000 guibg=#000000
-    highlight ConqueCCB00f guibg=#0000ff
-    highlight ConqueCCB0f0 guibg=#00ff00
-    highlight ConqueCCB0ff guibg=#00ffff
-    highlight ConqueCCBf00 guibg=#ff0000
-    highlight ConqueCCBf0f guibg=#ff00ff
-    highlight ConqueCCBff0 guibg=#ffff00
-    highlight ConqueCCBfff guibg=#ffffff
+    " highlight ConqueCCB00f guibg=#0000ff
+    highlight ConqueCCB00f guibg=#719ECF
+    " highlight ConqueCCB0f0 guibg=#00ff00
+    highlight ConqueCCB0f0 guibg=#8AE234
+    " highlight ConqueCCB0ff guibg=#00ffff
+    highlight ConqueCCB0ff guibg=#34E2E2
+    " highlight ConqueCCBf00 guibg=#ff0000
+    highlight ConqueCCBf00 guibg=#EF2828
+    " highlight ConqueCCBf0f guibg=#ff00ff
+    highlight ConqueCCBf0f guibg=#AD7EA7
+    " highlight ConqueCCBff0 guibg=#ffff00
+    highlight ConqueCCBff0 guibg=#FCE94E
+    " highlight ConqueCCBfff guibg=#ffffff
+    highlight ConqueCCBfff guibg=#EDEDEC
 
     " background colors, low intensity
     highlight link ConqueCCB000 ConqueCCBG
