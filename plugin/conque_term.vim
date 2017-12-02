@@ -1,3 +1,4 @@
+call TQ84_log_indent(expand('<sfile>'))
 " FILE:     plugin/conque_term.vim {{{
 " AUTHOR:   Nico Raffo <nicoraffo@gmail.com>
 " WEBSITE:  http://conque.googlecode.com
@@ -213,4 +214,5 @@ endif
 
 " }}}
 
+call TQ84_log_dedent()
 " vim:foldmethod=marker
