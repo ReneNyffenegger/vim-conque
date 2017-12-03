@@ -1,3 +1,4 @@
+call TQ84_log_indent(expand('<sfile>'))
 " FILE:     autoload/conque_term.vim {{{
 " AUTHOR:   Nico Raffo <nicoraffo@gmail.com>
 " WEBSITE:  http://conque.googlecode.com
@@ -434,13 +435,21 @@ let s:windows_vk = {
 
 " launch conque
 function! conque_term#open(...) "{{{
+    call TQ84_log_indent(expand('<sfile>'))
     let command = get(a:000, 0, '')
     let vim_startup_commands = get(a:000, 1, [])
     let return_to_current  = get(a:000, 2, 0)
     let is_buffer  = get(a:000, 3, 1)
 
+    call TQ84_log('command              = ' .      command                   )
+    call TQ84_log('vim_startup_commands = ' . join(vim_startup_commands, '-'))
+    call TQ84_log('return_to_current    = ' .      return_to_current         )
+    call TQ84_log('is_buffer            = ' .      is_buffer                 )
+
     " dependency check
     if !conque_term#dependency_check()
+        call TQ84_log('conque_term#dependency_check returned false, returning')
+        call TQ84_log_dedent()
         return 0
     endif
 
@@ -458,12 +467,14 @@ function! conque_term#open(...) "{{{
     endif
     if empty(command)
         echohl WarningMsg | echomsg "Invalid usage: no program path given. Use :ConqueTerm YOUR PROGRAM, e.g. :ConqueTerm ipython" | echohl None
+        call TQ84_log('command is empty, returning')
         return 0
     else
         let cmd_args = split(command, '[^\\]\@<=\s')
         let cmd_args[0] = substitute(cmd_args[0], '\\ ', ' ', 'g')
         if !executable(cmd_args[0])
             echohl WarningMsg | echomsg "Not an executable: " . cmd_args[0] | echohl None
+            call TQ84_log('command is not executable, returning')
             return 0
         endif
     endif
@@ -473,7 +484,12 @@ function! conque_term#open(...) "{{{
     let g:ConqueTerm_Var = 'ConqueTerm_' . g:ConqueTerm_Idx
     let g:ConqueTerm_BufName = substitute(command, ' ', '\\ ', 'g') . "\\ -\\ " . g:ConqueTerm_Idx
 
+    call TQ84_log('g:ConqueTerm_Idx     = ' . g:ConqueTerm_Idx)
+    call TQ84_log('g:ConqueTerm_Var     = ' . g:ConqueTerm_Var)
+    call TQ84_log('g:ConqueTerm_BufName = ' . g:ConqueTerm_BufName)
+
     " initialize global mappings if needed
+    call TQ84_log('calling conque_term#init()')
     call conque_term#init()
 
     " set Vim buffer window options
@@ -520,6 +536,7 @@ function! conque_term#open(...) "{{{
 
     " set key mappings and auto commands 
     if is_buffer
+        call TQ84_log('is_buffer: calling conque_term#set_mappings("start")')
         call conque_term#set_mappings('start')
     endif
 
@@ -534,6 +551,8 @@ function! conque_term#open(...) "{{{
         startinsert!
     endif
 
+    call TQ84_log('returning t_obj')
+    call TQ84_log_dedent()
     return t_obj
 
 endfunction "}}}
@@ -891,8 +910,11 @@ endfunction " }}}
 
 " Initialize global mappings. Should only be called once per Vim session
 function! conque_term#init() " {{{
+    call TQ84_log_indent('conque_term#init')
 
     if s:initialized == 1
+        call TQ84_log('s:initialized = 1, returning)
+        call TQ84_log_dedent()
         return
     endif
 
@@ -906,7 +928,10 @@ function! conque_term#init() " {{{
         autocmd ConqueTerm CursorHold * call conque_term#read_all(0)
     endif
 
+  " tq84 TODO: should here not be a »augroup end«?
+
     let s:initialized = 1
+    call TQ84_log_dedent()
 
 endfunction " }}}
 
@@ -1275,10 +1300,12 @@ endfunction "}}}
 
 " called on SessionLoadPost event
 function! conque_term#resume_session() " {{{
+    call TQ84_log_indent(expand('<sfile>'))
     if g:ConqueTerm_SessionSupport == 1
 
         " make sure terminals exist
         if !exists('s:saved_terminals') || type(s:saved_terminals) != 4
+            call TQ84_log_dedent()
             return
         endif
 
@@ -1299,10 +1326,12 @@ function! conque_term#resume_session() " {{{
             " reopen command
             call conque_term#open(s:saved_terminals[idx].command)
 
+            call TQ84_log_dedent()
             return
         endfor
 
     endif
+    call TQ84_log_dedent()
 endfunction " }}}
 
 " }}}
@@ -1505,4 +1534,5 @@ function! conque_term#load_python() " {{{
 
 endfunction " }}}
 
+call TQ84_log_dedent()
 " vim:foldmethod=marker

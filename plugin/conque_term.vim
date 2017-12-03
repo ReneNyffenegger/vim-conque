@@ -32,6 +32,8 @@ call TQ84_log_indent(expand('<sfile>'))
 " See docs/conque_term.txt for help or type :help ConqueTerm
 
 if exists('g:ConqueTerm_Loaded') || v:version < 700
+    call TQ84_log('g:ConqueTerm_Loaded exists, returning')
+    call TQ84_log_dedent()
     finish
 endif
 
